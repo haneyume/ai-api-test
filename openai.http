@@ -1,0 +1,124 @@
+@OPENAI_API_URL=https://api.openai.com/v1
+@OPENAI_API_KEY=
+
+###
+### List models
+GET {{OPENAI_API_URL}}/models
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+###
+### Retrieve model
+GET {{OPENAI_API_URL}}/models/text-davinci-002
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+###
+### Create completion
+POST {{OPENAI_API_URL}}/completions
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+{
+  "model": "text-davinci-002",
+  "prompt": "Say this is a test"
+}
+
+###
+### Create edit
+POST {{OPENAI_API_URL}}/edits
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+{
+  "model": "text-davinci-edit-001",
+  "input": "What day of the wek is it?",
+  "instruction": "Fix the spelling mistakes"
+}
+
+###
+### Create embeddings
+POST {{OPENAI_API_URL}}/embeddings
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+{
+  "model": "text-similarity-babbage-001",
+  "input": "The food was delicious and the waiter..."
+}
+
+###
+### List files
+GET {{OPENAI_API_URL}}/files
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+###
+### Upload file
+POST {{OPENAI_API_URL}}/files
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+{
+  "file": "",
+  "purpose": "fine-tune"
+}
+
+###
+### Delete file
+DELETE {{OPENAI_API_URL}}/files/{file_id}
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+###
+### Retrieve file
+GET {{OPENAI_API_URL}}/files/{file_id}
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+###
+### Retrieve file content
+GET {{OPENAI_API_URL}}/files/{file_id}/content
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+###
+### Create fine-tune
+POST {{OPENAI_API_URL}}/fine-tunes
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+{
+  "training_file": "",
+  "validation_file": ""
+}
+
+###
+### List fine-tunes
+GET {{OPENAI_API_URL}}/fine-tunes
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+###
+### Retrieve fine-tune
+GET {{OPENAI_API_URL}}/fine-tunes/{fine_tune_id}
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+###
+### Cancel fine-tune
+POST {{OPENAI_API_URL}}/fine-tunes/{fine_tune_id}/cancel
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+###
+### List fine-tune events
+GET {{OPENAI_API_URL}}/fine-tunes/{fine_tune_id}/events
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
+
+###
+### Delete fine-tune model
+DELETE {{OPENAI_API_URL}}/models/{model}
+Authorization: Bearer {{OPENAI_API_KEY}}
+Content-Type: application/json
